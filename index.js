@@ -19,6 +19,10 @@ const db = new Database({
   },
 });
 
+// Routes
+app.use(require('./routes/core.routes'));
+app.use('/api/v1', require('./routes/geo.routes'));
+
 // Catch all unmatched routes
 app.use((req, res, next) => {
   res.status(404).json({
@@ -27,10 +31,6 @@ app.use((req, res, next) => {
     path: req.originalUrl,
   });
 });
-
-// Routes
-app.use('/', require('./routes/core.routes'));
-app.use('/api/v1', require('./routes/geo.routes'));
 
 // Global error handler
 app.use((err, req, res, next) => {

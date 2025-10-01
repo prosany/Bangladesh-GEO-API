@@ -1,16 +1,17 @@
 const express = require('express');
 const router = express.Router();
 const geoController = require('../controllers/geo.controller');
+const apiKeyAuth = require('../middlewares/auth.middleware');
 
 // Division routes
-router.post('/divisions', geoController.createDivision);
-router.post('/divisions/bulk', geoController.createDivisionsBulk);
-router.get('/divisions', geoController.getAllDivisions);
+router.post('/divisions', apiKeyAuth, geoController.createDivision);
+router.post('/divisions/bulk', apiKeyAuth, geoController.createDivisionsBulk);
+router.get('/divisions', apiKeyAuth, geoController.getAllDivisions);
 router.get('/divisions/:id', geoController.getDivisionById);
 
 // District routes
-router.post('/districts', geoController.createDistrict);
-router.post('/districts/bulk', geoController.createDistrictsBulk);
+router.post('/districts', apiKeyAuth, geoController.createDistrict);
+router.post('/districts/bulk', apiKeyAuth, geoController.createDistrictsBulk);
 router.get('/districts', geoController.getAllDistricts);
 router.get('/districts/:id', geoController.getDistrictById);
 router.get(
@@ -19,8 +20,8 @@ router.get(
 );
 
 // Upazila routes
-router.post('/upazilas', geoController.createUpazila);
-router.post('/upazilas/bulk', geoController.createUpazilasBulk);
+router.post('/upazilas', apiKeyAuth, geoController.createUpazila);
+router.post('/upazilas/bulk', apiKeyAuth, geoController.createUpazilasBulk);
 router.get('/upazilas', geoController.getAllUpazilas);
 router.get(
   '/upazilas/by-district/:district_id',
@@ -28,8 +29,12 @@ router.get(
 );
 
 // Post Office routes
-router.post('/postoffices', geoController.createPostOffice);
-router.post('/postoffices/bulk', geoController.createPostOfficesBulk);
+router.post('/postoffices', apiKeyAuth, geoController.createPostOffice);
+router.post(
+  '/postoffices/bulk',
+  apiKeyAuth,
+  geoController.createPostOfficesBulk
+);
 router.get('/postoffices', geoController.getAllPostOffices);
 router.get(
   '/postoffices/by-division-district',
