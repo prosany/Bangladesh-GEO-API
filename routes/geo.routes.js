@@ -6,7 +6,7 @@ const apiKeyAuth = require('../middlewares/auth.middleware');
 // Division routes
 router.post('/divisions', apiKeyAuth, geoController.createDivision);
 router.post('/divisions/bulk', apiKeyAuth, geoController.createDivisionsBulk);
-router.get('/divisions', apiKeyAuth, geoController.getAllDivisions);
+router.get('/divisions', geoController.getAllDivisions);
 router.get('/divisions/:id', geoController.getDivisionById);
 
 // District routes
