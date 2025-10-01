@@ -12,7 +12,7 @@ This API is useful for:
 ---
 
 ## 🚀 Base URL
-https://bangladesh-geo-api.mahabubsany.com
+https://bangladesh-geo-api.mahabubsany.com/api/v1
 
 ---
 
