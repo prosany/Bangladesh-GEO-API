@@ -19,6 +19,8 @@ const db = new Database({
   },
 });
 
+db.connect();
+
 // Routes
 app.use(require('./routes/core.routes'));
 app.use('/api/v1', require('./routes/geo.routes'));
@@ -44,8 +46,7 @@ app.use((err, req, res, next) => {
   });
 });
 
-app.listen(config.PORT, async () => {
-  await db.connect();
+app.listen(config.PORT, () => {
   console.log(`Server is running on port ${config.PORT}`);
 });
 
