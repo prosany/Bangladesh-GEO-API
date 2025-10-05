@@ -5,7 +5,6 @@ const postOfficeSchema = new Schema(
     division_id: {
       type: String,
       required: true,
-      unique: true,
     },
     district_id: {
       type: String,
