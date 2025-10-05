@@ -10,10 +10,12 @@ const divisionSchema = new Schema(
     name: {
       type: String,
       required: true,
+      unique: true,
     },
     bn_name: {
       type: String,
       required: true,
+      unique: true,
     },
   },
   { timestamps: true }

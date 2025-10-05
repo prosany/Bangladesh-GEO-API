@@ -22,6 +22,7 @@ const postOfficeSchema = new Schema(
     postCode: {
       type: String,
       required: true,
+      unique: true,
     },
   },
   { timestamps: true }
