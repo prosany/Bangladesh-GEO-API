@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const { config } = require('./configs');
 const Database = require('./libs/initDB');
+require('./libs/initRedis');
 
 const app = express();
 
